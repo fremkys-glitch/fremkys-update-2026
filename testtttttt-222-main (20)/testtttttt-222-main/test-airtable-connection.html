@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Airtable Connection - FREMKYS</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        h1 {
+            margin-top: 0;
+            color: #333;
+        }
+        button {
+            background: black;
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 4px;
+            margin: 10px 0;
+            width: 100%;
+        }
+        button:hover {
+            background: #333;
+        }
+        button:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+        }
+        #results {
+            margin-top: 20px;
+            padding: 15px;
+            background: #f9f9f9;
+            border-left: 4px solid #333;
+            font-family: monospace;
+            font-size: 14px;
+            white-space: pre-wrap;
+            max-height: 500px;
+            overflow-y: auto;
+        }
+        .success {
+            border-left-color: #22c55e;
+            background: #f0fdf4;
+        }
+        .error {
+            border-left-color: #ef4444;
+            background: #fef2f2;
+        }
+        .info {
+            background: #f0f9ff;
+            border: 1px solid #bfdbfe;
+            padding: 15px;
+            border-radius: 4px;
+            margin: 15px 0;
+        }
+        .step {
+            margin: 20px 0;
+            padding: 15px;
+            background: #fafafa;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Airtable Connection Test - FREMKYS</h1>
+
+        <div class="info">
+            <strong>What this test does:</strong>
+            <ul>
+                <li>Sends a test order to your edge function</li>
+                <li>Shows detailed logs from the submission</li>
+                <li>Helps identify why orders aren't appearing in Airtable</li>
+            </ul>
+        </div>
+
+        <div class="step">
+            <h3>Step 1: Prepare</h3>
+            <ol>
+                <li>Open your browser's Developer Tools (Press F12)</li>
+                <li>Go to the "Console" tab</li>
+                <li>Keep it open to see detailed logs</li>
+            </ol>
+        </div>
+
+        <button id="testBtn" onclick="testOrder()">Send Test Order</button>
+
+        <div id="results"></div>
+
+        <div class="step" style="margin-top: 30px;">
+            <h3>Step 2: After Test</h3>
+            <ol>
+                <li><strong>Check Console logs</strong> (F12) for detailed information</li>
+                <li><strong>Check Supabase logs</strong>:
+                    <a href="https://supabase.com/dashboard/project/xktmwzqqlbkymlsavutn/functions" target="_blank">
+                        Edge Function Logs
+                    </a>
+                </li>
+                <li><strong>Check Airtable</strong>:
+                    <a href="https://airtable.com/appHEqfWbNHzk3zft" target="_blank">
+                        Orders Table
+                    </a>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        async function testOrder() {
+            const resultsDiv = document.getElementById('results');
+            const btn = document.getElementById('testBtn');
+
+            resultsDiv.textContent = 'Sending test order...\n\n';
+            resultsDiv.className = '';
+            btn.disabled = true;
+
+            const testOrder = {
+                customer: {
+                    firstName: 'Test',
+                    lastName: 'User',
+                    email: 'test@fremkys.com',
+                    phone: '+213555123456',
+                    address: '123 Test Street',
+                    city: 'Algiers',
+                    wilaya: 'Alger',
+                    deliveryType: 'home',
+                    notes: 'Test order from diagnostic script'
+                },
+                items: [{
+                    id: 'test-1',
+                    name: 'Test Product',
+                    price: 5000,
+                    quantity: 1,
+                    size: 'M'
+                }],
+                shippingFee: 600
+            };
+
+            console.log('📝 Starting test order submission...');
+            console.log('📦 Test payload:', testOrder);
+
+            try {
+                const edgeFunctionUrl = 'https://xktmwzqqlbkymlsavutn.supabase.co/functions/v1/create-order';
+                const anonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InhrdG13enFxbGJreW1sc2F2dXRuIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjQwMzEzNTEsImV4cCI6MjA3OTYwNzM1MX0.vVxA-ajZxykRnKpahyyA99ccEvyWn_TIhV1fT_Mp4vE';
+
+                console.log('🌐 Sending to:', edgeFunctionUrl);
+
+                const response = await fetch(edgeFunctionUrl, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${anonKey}`
+                    },
+                    body: JSON.stringify(testOrder)
+                });
+
+                console.log('📥 Response status:', response.status);
+
+                const result = await response.json();
+                console.log('📥 Response data:', result);
+
+                let output = `Response Status: ${response.status}\n\n`;
+                output += `Response Data:\n${JSON.stringify(result, null, 2)}\n\n`;
+
+                if (response.ok && result.success) {
+                    output += `SUCCESS!\n\n`;
+                    output += `Order Number: ${result.orderNumber}\n`;
+                    output += `Supabase Order ID: ${result.orderId}\n`;
+                    output += `Airtable Success: ${result.airtableSuccess ? 'YES' : 'NO'}\n`;
+
+                    if (result.airtableSuccess) {
+                        output += `Airtable Record ID: ${result.airtableRecordId}\n\n`;
+                        output += `CHECK AIRTABLE NOW:\n`;
+                        output += `https://airtable.com/appHEqfWbNHzk3zft\n\n`;
+                        output += `Look for record: ${result.airtableRecordId}`;
+                        resultsDiv.className = 'success';
+                    } else {
+                        output += `\nAIRTABLE FAILED!\n`;
+                        output += `Reason: ${result.message}\n\n`;
+                        output += `NEXT STEPS:\n`;
+                        output += `1. Check Supabase Edge Function logs\n`;
+                        output += `2. Verify field names in Airtable\n`;
+                        output += `3. See AIRTABLE_FIELD_CHECKLIST.md`;
+                        resultsDiv.className = 'error';
+                    }
+                } else {
+                    output += `FAILED!\n\n`;
+                    output += `Error: ${result.error || 'Unknown error'}\n\n`;
+                    output += `NEXT STEPS:\n`;
+                    output += `1. Check the Console tab (F12) for detailed errors\n`;
+                    output += `2. Check Supabase logs: https://supabase.com/dashboard/project/xktmwzqqlbkymlsavutn/functions\n`;
+                    output += `3. Review AIRTABLE_FIELD_CHECKLIST.md`;
+                    resultsDiv.className = 'error';
+                }
+
+                resultsDiv.textContent = output;
+
+            } catch (error) {
+                console.error('❌ Test failed:', error);
+                resultsDiv.textContent = `ERROR!\n\n${error.message}\n\nCheck the Console (F12) for details.`;
+                resultsDiv.className = 'error';
+            } finally {
+                btn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>
