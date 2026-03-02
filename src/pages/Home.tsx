@@ -58,7 +58,7 @@ export default function Home({ onNavigate, onCartOpen }: HomeProps) {
             onClick={() => onNavigate('shop', undefined, undefined, 'new-arrivals')}
           >
             <img
-              src="https://xktmwzqqlbkymlsavutn.supabase.co/storage/v1/object/public/fitted%20long%20coat%20bordeaux/photo2_imgupscaler.ai_Beta_2K.jpg"
+              src="https://res.cloudinary.com/dlhbx3b1d/image/upload/v1771892445/home_3_qro91c.jpg"
               alt="Nouveautés"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
@@ -72,7 +72,7 @@ export default function Home({ onNavigate, onCartOpen }: HomeProps) {
             onClick={() => onNavigate('shop', undefined, undefined, 'best-sellers')}
           >
             <img
-              src="https://xktmwzqqlbkymlsavutn.supabase.co/storage/v1/object/public/fitted%20long%20coat%20bordeaux/photo1_imgupscaler.ai_Beta_2K.jpg"
+              src="https://res.cloudinary.com/dlhbx3b1d/image/upload/v1771892430/home_2_rlkc72.jpg"
               alt="Best Sellers"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
@@ -86,7 +86,7 @@ export default function Home({ onNavigate, onCartOpen }: HomeProps) {
             onClick={() => onNavigate('shop', undefined, undefined, 'limited-edition')}
           >
             <img
-              src="https://xktmwzqqlbkymlsavutn.supabase.co/storage/v1/object/public/fitted%20long%20coat%20bordeaux/photo3_imgupscaler.ai_Beta_2K.jpg"
+              src="https://res.cloudinary.com/dlhbx3b1d/image/upload/v1771892419/home_1_cvqwdf.jpg"
               alt="Collection Limitée"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
