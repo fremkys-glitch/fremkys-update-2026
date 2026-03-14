@@ -10,10 +10,12 @@ interface ProductProps {
   onNavigate: (page: string) => void;
   cart?: ReturnType<typeof useCart>;
   favorites?: ReturnType<typeof useFavorites>;
+  productsData?: ReturnType<typeof useProducts>;
 }
 
-export default function Product({ productId, onCartOpen, onNavigate, cart: cartProp, favorites: favoritesProp }: ProductProps) {
-  const { products, loading } = useProducts();
+export default function Product({ productId, onCartOpen, onNavigate, cart: cartProp, favorites: favoritesProp, productsData }: ProductProps) {
+  const fallbackProducts = useProducts();
+  const { products, loading } = productsData || fallbackProducts;
   const [product, setProduct] = useState<ProductType | null>(null);
   const [selectedSize, setSelectedSize] = useState('');
   const [selectedImage, setSelectedImage] = useState(0);
