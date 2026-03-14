@@ -6,7 +6,7 @@ export default function About() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
         <div className="aspect-square bg-gray-100">
           <img
-            src="https://xktmwzqqlbkymlsavutn.supabase.co/storage/v1/object/public/fitted%20long%20coat%20bordeaux/Gemini_Generated_Image_v8av5fv8av5fv8av.png"
+            src="https://i.postimg.cc/HLdjZM37/fremkys-logo.jpg"
             alt="Notre Histoire"
             className="w-full h-full object-cover"
           />
@@ -37,7 +37,7 @@ export default function About() {
         </div>
         <div className="aspect-square bg-gray-100 order-1 md:order-2">
           <img
-            src="https://xktmwzqqlbkymlsavutn.supabase.co/storage/v1/object/public/fitted%20long%20coat%20bordeaux/Screenshot%202025-12-03%20232808.png"
+            src="https://i.postimg.cc/QNJ92hHt/ss.jpg"
             alt="Notre Philosophie"
             className="w-full h-full object-cover"
           />
@@ -70,3 +70,21 @@ export default function About() {
     </div>
   );
 }
+```
+
+---
+
+**التغييران فقط:**
+```
+// ❌ قبل
+https://xktmwzqqlbkymlsavutn.supabase.co/storage/v1/object/public/fitted long coat bordeaux/Gemini_Generated_Image_v8av5fv8av5fv8av.png
+
+// ✅ بعد
+https://i.postimg.cc/HLdjZM37/fremkys-logo.jpg
+```
+```
+// ❌ قبل
+https://xktmwzqqlbkymlsavutn.supabase.co/storage/v1/object/public/fitted long coat bordeaux/Screenshot 2025-12-03 232808.png
+
+// ✅ بعد
+https://i.postimg.cc/QNJ92hHt/ss.jpg
