@@ -8,21 +8,20 @@ interface ShopProps {
   onNavigate: (page: string, productId?: string, category?: string, collection?: string) => void;
   onCartOpen: () => void;
   collectionType?: 'all' | 'best-sellers' | 'limited-edition' | 'new-arrivals';
+  productsData?: ReturnType<typeof useProducts>;
 }
 
-export default function Shop({ onNavigate, onCartOpen }: ShopProps) {
+export default function Shop({ onNavigate, onCartOpen, productsData }: ShopProps) {
   const [filterOpen, setFilterOpen] = useState(false);
   const [priceRange, setPriceRange] = useState<[number, number]>([0, 50000]);
   const cart = useCart();
-  const { products, loading } = useProducts();
+  const fallbackProducts = useProducts();
+  const { products, loading } = productsData || fallbackProducts;
 
   const filteredProducts = useMemo(() => {
-    const filtered = products.filter(p => {
-      const priceMatch = p.price >= priceRange[0] && p.price <= priceRange[1];
-      return priceMatch;
+    return products.filter(p => {
+      return p.price >= priceRange[0] && p.price <= priceRange[1];
     });
-
-    return filtered;
   }, [products, priceRange]);
 
   return (
