@@ -70,21 +70,3 @@ export default function About() {
     </div>
   );
 }
-```
-
----
-
-**التغييران فقط:**
-```
-// ❌ قبل
-https://xktmwzqqlbkymlsavutn.supabase.co/storage/v1/object/public/fitted long coat bordeaux/Gemini_Generated_Image_v8av5fv8av5fv8av.png
-
-// ✅ بعد
-https://i.postimg.cc/HLdjZM37/fremkys-logo.jpg
-```
-```
-// ❌ قبل
-https://xktmwzqqlbkymlsavutn.supabase.co/storage/v1/object/public/fitted long coat bordeaux/Screenshot 2025-12-03 232808.png
-
-// ✅ بعد
-https://i.postimg.cc/QNJ92hHt/ss.jpg
