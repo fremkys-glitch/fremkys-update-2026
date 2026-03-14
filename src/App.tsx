@@ -17,6 +17,7 @@ import OrderConfirmation from './pages/OrderConfirmation';
 import { useCart } from './hooks/useCart';
 import { useFavorites } from './hooks/useFavorites';
 import { useAuth } from './hooks/useAuth';
+import { useProducts } from './hooks/useProducts';
 
 type Page = 'home' | 'shop' | 'product' | 'about' | 'contact' | 'track' | 'faq' | 'privacy' | 'terms' | 'admin' | 'checkout' | 'confirmation';
 type CollectionType = 'all' | 'best-sellers' | 'limited-edition' | 'new-arrivals';
@@ -32,6 +33,7 @@ function App() {
   const cart = useCart();
   const favorites = useFavorites();
   const { user, loading } = useAuth();
+  const productsData = useProducts();
 
   useEffect(() => {
     const urlParams = new URLSearchParams(window.location.search);
@@ -115,11 +117,11 @@ function App() {
   const renderPage = () => {
     switch (currentPage) {
       case 'home':
-        return <Home onNavigate={handleNavigate} onCartOpen={() => setCartOpen(true)} />;
+        return <Home onNavigate={handleNavigate} onCartOpen={() => setCartOpen(true)} productsData={productsData} />;
       case 'shop':
-        return <Shop onNavigate={handleNavigate} onCartOpen={() => setCartOpen(true)} collectionType={collectionType} />;
+        return <Shop onNavigate={handleNavigate} onCartOpen={() => setCartOpen(true)} collectionType={collectionType} productsData={productsData} />;
       case 'product':
-        return <Product productId={selectedProductId} onCartOpen={() => setCartOpen(true)} onNavigate={handleNavigate} cart={cart} favorites={favorites} />;
+        return <Product productId={selectedProductId} onCartOpen={() => setCartOpen(true)} onNavigate={handleNavigate} cart={cart} favorites={favorites} productsData={productsData} />;
       case 'about':
         return <About />;
       case 'contact':
@@ -139,7 +141,7 @@ function App() {
       case 'confirmation':
         return <OrderConfirmation orderNumber={orderNumber} onNavigate={handleNavigate} />;
       default:
-        return <Home onNavigate={handleNavigate} onCartOpen={() => setCartOpen(true)} />;
+        return <Home onNavigate={handleNavigate} onCartOpen={() => setCartOpen(true)} productsData={productsData} />;
     }
   };
 
