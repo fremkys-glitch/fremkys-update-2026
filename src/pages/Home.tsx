@@ -14,7 +14,6 @@ export default function Home({ onNavigate, onCartOpen }: HomeProps) {
   const cart = useCart();
   const { products, loading } = useProducts();
 
-
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     alert('Merci pour votre inscription !');
@@ -29,7 +28,7 @@ export default function Home({ onNavigate, onCartOpen }: HomeProps) {
         onClick={() => onNavigate('shop')}
       >
         <img
-          src="https://xktmwzqqlbkymlsavutn.supabase.co/storage/v1/object/public/fitted%20long%20coat%20bordeaux/zurich_imgupscaler.ai_Beta_2K.jpg"
+          src="https://ik.imagekit.io/dpfjowzmv/home%20photo.jpg"
           alt="Nouvelle Collection"
           className="absolute inset-0 w-full h-full object-cover"
         />
@@ -97,7 +96,6 @@ export default function Home({ onNavigate, onCartOpen }: HomeProps) {
         </div>
       </section>
 
-
       <section className="container mx-auto px-4 py-16">
         <div className="flex items-center justify-between mb-12">
           <h2 className="text-3xl font-light">Sélection</h2>
@@ -156,3 +154,14 @@ export default function Home({ onNavigate, onCartOpen }: HomeProps) {
     </div>
   );
 }
+```
+
+---
+
+**التغيير الوحيد:**
+```
+// ❌ قبل
+https://xktmwzqqlbkymlsavutn.supabase.co/storage/v1/object/public/fitted long coat bordeaux/zurich_imgupscaler.ai_Beta_2K.jpg
+
+// ✅ بعد
+https://ik.imagekit.io/dpfjowzmv/home%20photo.jpg
