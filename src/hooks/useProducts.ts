@@ -36,15 +36,13 @@ export function useProducts() {
 
   const loadProducts = async () => {
     try {
-      console.log('useProducts - Loading products from Supabase...');
       setLoading(true);
       const { data, error } = await supabase
         .from('products')
-        .select('*')
+        .select('id, name, price, "old price", "Catégories", image, image2, image3, description, in_stock, is_new, is_best_seller, is_limited_edition, product_link, size_s, "size_M", "size_L", "size_XL", size_36, size_38, size_40, size_42')
         .order('created_at', { ascending: false });
 
       if (error) throw error;
-      console.log('useProducts - Raw data from Supabase:', data?.length, 'products');
 
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       const formattedProducts: Product[] = (data || []).map((p: any) => {
@@ -98,22 +96,10 @@ export function useProducts() {
         };
       });
 
-      console.log('✅ Products received from Supabase:', data?.length || 0);
-      console.log('✅ Raw data first item:', data?.[0]);
-
       setProducts(formattedProducts);
-      console.log('✅ Products after formatting:', formattedProducts.length);
-      console.log('✅ Categories found:', [...new Set(formattedProducts.map(p => p.category))]);
-      if (formattedProducts.length > 0) {
-        console.log('✅ Sample product:', {
-          id: formattedProducts[0].id,
-          name: formattedProducts[0].name,
-          category: formattedProducts[0].category
-        });
-      }
       setError(null);
     } catch (err) {
-      console.error('useProducts - Error loading products:', err);
+      console.error('Error loading products:', err);
       setError('فشل تحميل المنتجات');
     } finally {
       setLoading(false);
