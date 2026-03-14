@@ -7,12 +7,14 @@ import { useProducts } from '../hooks/useProducts';
 interface HomeProps {
   onNavigate: (page: string, productId?: string, category?: string, collection?: string) => void;
   onCartOpen: () => void;
+  productsData?: ReturnType<typeof useProducts>;
 }
 
-export default function Home({ onNavigate, onCartOpen }: HomeProps) {
+export default function Home({ onNavigate, onCartOpen, productsData }: HomeProps) {
   const [email, setEmail] = useState('');
   const cart = useCart();
-  const { products, loading } = useProducts();
+  const fallbackProducts = useProducts();
+  const { products, loading } = productsData || fallbackProducts;
 
   const handleNewsletterSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -154,14 +156,3 @@ export default function Home({ onNavigate, onCartOpen }: HomeProps) {
     </div>
   );
 }
-```
-
----
-
-**التغيير الوحيد:**
-```
-// ❌ قبل
-https://xktmwzqqlbkymlsavutn.supabase.co/storage/v1/object/public/fitted long coat bordeaux/zurich_imgupscaler.ai_Beta_2K.jpg
-
-// ✅ بعد
-https://ik.imagekit.io/dpfjowzmv/home%20photo.jpg
