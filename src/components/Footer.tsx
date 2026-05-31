@@ -19,32 +19,22 @@ export default function Footer({ onNavigate }: FooterProps) {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div>
             <h3 className="text-xl font-light tracking-[0.3em] mb-4">FREMKYS</h3>
-            <p className="text-gray-400 text-sm">
-              Mode féminine élégante et intemporelle
-            </p>
+            <p className="text-gray-400 text-sm">Mode féminine élégante et intemporelle</p>
           </div>
           <div>
             <h4 className="font-semibold mb-4">Navigation</h4>
             <ul className="space-y-2 text-gray-400 text-sm">
               <li>
-                <button onClick={() => onNavigate('shop')} className="hover:text-white transition">
-                  Boutique
-                </button>
+                <button onClick={() => onNavigate('shop')} className="hover:text-white transition">Boutique</button>
               </li>
               <li>
-                <button onClick={() => onNavigate('about')} className="hover:text-white transition">
-                  À propos
-                </button>
+                <button onClick={() => onNavigate('about')} className="hover:text-white transition">À propos</button>
               </li>
               <li>
-                <button onClick={() => onNavigate('contact')} className="hover:text-white transition">
-                  Contact
-                </button>
+                <button onClick={() => onNavigate('contact')} className="hover:text-white transition">Contact</button>
               </li>
               <li>
-                <button onClick={() => onNavigate('track')} className="hover:text-white transition">
-                  Suivre ma commande
-                </button>
+                <button onClick={() => onNavigate('track')} className="hover:text-white transition">Suivre ma commande</button>
               </li>
             </ul>
           </div>
@@ -52,31 +42,20 @@ export default function Footer({ onNavigate }: FooterProps) {
             <h4 className="font-semibold mb-4">Informations</h4>
             <ul className="space-y-2 text-gray-400 text-sm">
               <li>
-                <button onClick={() => onNavigate('faq')} className="hover:text-white transition">
-                  FAQ
-                </button>
+                <button onClick={() => onNavigate('faq')} className="hover:text-white transition">FAQ</button>
               </li>
               <li>
-                <button onClick={() => onNavigate('privacy')} className="hover:text-white transition">
-                  Politique de confidentialité
-                </button>
+                <button onClick={() => onNavigate('privacy')} className="hover:text-white transition">Politique de confidentialité</button>
               </li>
               <li>
-                <button onClick={() => onNavigate('terms')} className="hover:text-white transition">
-                  Conditions générales
-                </button>
+                <button onClick={() => onNavigate('terms')} className="hover:text-white transition">Conditions générales</button>
               </li>
             </ul>
           </div>
           <div>
             <h4 className="font-semibold mb-4">Suivez-nous</h4>
             <div className="flex space-x-4">
-              
-                href="https://www.instagram.com/fremkys.boutique/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white transition"
-              >
+              <a href="https://www.instagram.com/fremkys.boutique/" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition">
                 <Instagram size={20} />
               </a>
             </div>
@@ -86,20 +65,10 @@ export default function Footer({ onNavigate }: FooterProps) {
           <p>&copy; {new Date().getFullYear()} FREMKYS. Tous droits réservés.</p>
           <p className="mt-3 flex items-center justify-center gap-2">
             Developed by{' '}
-            
-              href="https://www.instagram.com/not.rpm/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-white hover:text-gray-300 transition font-medium"
-            >
+            <a href="https://www.instagram.com/not.rpm/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition font-medium">
               MOUMENE.H
             </a>
-            
-              href={whatsappUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 bg-[#25D366] hover:bg-[#20BA5A] text-white text-xs px-2.5 py-1 rounded-full transition font-medium"
-            >
+            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 bg-[#25D366] hover:bg-[#20BA5A] text-white text-xs px-2.5 py-1 rounded-full transition font-medium">
               <WhatsAppIcon size={13} />
               Contactez-moi
             </a>
