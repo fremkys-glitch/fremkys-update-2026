@@ -59,7 +59,7 @@ export default function Home({ onNavigate, onCartOpen, productsData }: HomeProps
             onClick={() => onNavigate('shop', undefined, undefined, 'new-arrivals')}
           >
             <img
-              src="https://res.cloudinary.com/dlhbx3b1d/image/upload/v1771892445/home_3_qro91c.jpg"
+              src="https://res.cloudinary.com/dae9tqd7g/image/upload/v1780233163/WhatsApp_Image_2026-05-02_at_13.35.37_2_nl6y3o.jpg"
               alt="Nouveautés"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
@@ -73,7 +73,7 @@ export default function Home({ onNavigate, onCartOpen, productsData }: HomeProps
             onClick={() => onNavigate('shop', undefined, undefined, 'best-sellers')}
           >
             <img
-              src="https://res.cloudinary.com/dlhbx3b1d/image/upload/v1771892430/home_2_rlkc72.jpg"
+              src="https://res.cloudinary.com/dae9tqd7g/image/upload/v1780233335/WhatsApp_Image_2026-05-02_at_13.35.37_1_f8jdcd.jpg"
               alt="Best Sellers"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
@@ -87,7 +87,7 @@ export default function Home({ onNavigate, onCartOpen, productsData }: HomeProps
             onClick={() => onNavigate('shop', undefined, undefined, 'limited-edition')}
           >
             <img
-              src="https://res.cloudinary.com/dlhbx3b1d/image/upload/v1771892419/home_1_cvqwdf.jpg"
+              src="https://res.cloudinary.com/dae9tqd7g/image/upload/v1780233341/WhatsApp_Image_2026-05-02_at_13.35.37_iwalub.jpg"
               alt="Collection Limitée"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
