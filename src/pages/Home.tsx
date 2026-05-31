@@ -30,7 +30,7 @@ export default function Home({ onNavigate, onCartOpen, productsData }: HomeProps
         onClick={() => onNavigate('shop')}
       >
         <img
-          src="https://ik.imagekit.io/dpfjowzmv/home%20photo.jpg"
+          src="https://res.cloudinary.com/dae9tqd7g/video/upload/v1780236343/make_pro_video_202605311504_qoamup.mp4"
           alt="Nouvelle Collection"
           className="absolute inset-0 w-full h-full object-cover"
         />
