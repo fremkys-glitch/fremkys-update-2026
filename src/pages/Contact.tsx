@@ -91,7 +91,7 @@ export default function Contact() {
               <Phone className="mt-1 flex-shrink-0" size={20} />
               <div>
                 <h3 className="font-semibold mb-1">Téléphone</h3>
-                <p className="text-gray-600">+213 697696643</p>
+                <p className="text-gray-600">+213 1</p>
               </div>
             </div>
           </div>
