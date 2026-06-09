@@ -11,7 +11,7 @@ interface FooterProps {
 }
 
 export default function Footer({ onNavigate }: FooterProps) {
-  const whatsappUrl = `https://wa.me/213552864430?text=${encodeURIComponent("Bonjour, je suis intéressé(e) par vos services de développement web 👨‍💻")}`;
+  const whatsappUrl = `https://wa.me/213552864430?text=${encodeURIComponent("Bonjour, j'ai vu le site Fremkys et je voudrais un site similaire pour mon projet 🚀")}`;
 
   return (
     <footer className="bg-black text-white mt-20">
@@ -63,14 +63,16 @@ export default function Footer({ onNavigate }: FooterProps) {
         </div>
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400 text-sm">
           <p>&copy; {new Date().getFullYear()} FREMKYS. Tous droits réservés.</p>
-          <p className="mt-3 flex items-center justify-center gap-2">
-            Developed by{' '}
-            <a href="https://www.instagram.com/not.rpm/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300 transition font-medium">
-              MOUMENE.H
-            </a>
-            <a href={whatsappUrl} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1 bg-[#25D366] hover:bg-[#20BA5A] text-white text-xs px-2.5 py-1 rounded-full transition font-medium">
+          <p className="mt-3 flex items-center justify-center gap-2 flex-wrap">
+            <span className="text-gray-500 text-xs">💻 Vous voulez un site comme celui-ci ?</span>
+            
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 bg-[#25D366] hover:bg-[#20BA5A] text-white text-xs px-2.5 py-1 rounded-full transition font-medium"
+            >
               <WhatsAppIcon size={13} />
-              Contactez-moi
+              MOUMENE.H — Développeur web
             </a>
           </p>
         </div>
