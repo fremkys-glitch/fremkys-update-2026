@@ -24,32 +24,18 @@ export default function Footer({ onNavigate }: FooterProps) {
           <div>
             <h4 className="font-semibold mb-4">Navigation</h4>
             <ul className="space-y-2 text-gray-400 text-sm">
-              <li>
-                <button onClick={() => onNavigate('shop')} className="hover:text-white transition">Boutique</button>
-              </li>
-              <li>
-                <button onClick={() => onNavigate('about')} className="hover:text-white transition">À propos</button>
-              </li>
-              <li>
-                <button onClick={() => onNavigate('contact')} className="hover:text-white transition">Contact</button>
-              </li>
-              <li>
-                <button onClick={() => onNavigate('track')} className="hover:text-white transition">Suivre ma commande</button>
-              </li>
+              <li><button onClick={() => onNavigate('shop')} className="hover:text-white transition">Boutique</button></li>
+              <li><button onClick={() => onNavigate('about')} className="hover:text-white transition">À propos</button></li>
+              <li><button onClick={() => onNavigate('contact')} className="hover:text-white transition">Contact</button></li>
+              <li><button onClick={() => onNavigate('track')} className="hover:text-white transition">Suivre ma commande</button></li>
             </ul>
           </div>
           <div>
             <h4 className="font-semibold mb-4">Informations</h4>
             <ul className="space-y-2 text-gray-400 text-sm">
-              <li>
-                <button onClick={() => onNavigate('faq')} className="hover:text-white transition">FAQ</button>
-              </li>
-              <li>
-                <button onClick={() => onNavigate('privacy')} className="hover:text-white transition">Politique de confidentialité</button>
-              </li>
-              <li>
-                <button onClick={() => onNavigate('terms')} className="hover:text-white transition">Conditions générales</button>
-              </li>
+              <li><button onClick={() => onNavigate('faq')} className="hover:text-white transition">FAQ</button></li>
+              <li><button onClick={() => onNavigate('privacy')} className="hover:text-white transition">Politique de confidentialité</button></li>
+              <li><button onClick={() => onNavigate('terms')} className="hover:text-white transition">Conditions générales</button></li>
             </ul>
           </div>
           <div>
