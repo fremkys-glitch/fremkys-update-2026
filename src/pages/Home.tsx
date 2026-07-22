@@ -60,7 +60,7 @@ export default function Home({ onNavigate, onCartOpen, productsData }: HomeProps
             onClick={() => onNavigate('shop', undefined, undefined, 'new-arrivals')}
           >
             <img
-              src="https://res.cloudinary.com/dae9tqd7g/image/upload/v1780233163/WhatsApp_Image_2026-05-02_at_13.35.37_2_nl6y3o.jpg"
+              src="https://res.cloudinary.com/wwdh45fc/image/upload/v1784756621/IMG_0137_iqwhfj.jpg"
               alt="Nouveautés"
               className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
             />
