@@ -9,15 +9,15 @@ interface FAQItem {
 const faqData: FAQItem[] = [
   {
     question: "Quels sont les délais de livraison ?",
-    answer: "Les commandes sont expédiées sous 24-48h et livrées sous 3-5 jours ouvrés en France métropolitaine. Pour l'international, comptez 7-14 jours."
+    answer: "Les commandes sont expédiées et livrées sous 24h-48h jours ouvrés en France métropolitaine. Pour l'international, comptez 7-14 jours."
   },
   {
     question: "Comment puis-je retourner un article ?",
-    answer: "Vous disposez de 30 jours pour retourner un article non porté avec ses étiquettes. Contactez notre service client pour obtenir une étiquette de retour gratuite."
+    answer: "Vous disposez de 24h pour retourner un article non porté avec ses étiquettes. Contactez notre service client pour obtenir une étiquette de retour gratuite."
   },
   {
     question: "Les frais de livraison sont-ils gratuits ?",
-    answer: "Oui, la livraison est gratuite pour toute commande supérieure à 50€. En dessous de ce montant, les frais de livraison sont de 4,90€."
+    answer: "Oui, la livraison est gratuite pour toute commande supérieure à 20000da. En dessous de ce montant, les frais de livraison sont de 4,90€."
   },
   {
     question: "Comment connaître ma taille ?",
