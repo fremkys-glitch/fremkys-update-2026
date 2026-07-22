@@ -9,15 +9,15 @@ interface FAQItem {
 const faqData: FAQItem[] = [
   {
     question: "Quels sont les délais de livraison ?",
-    answer: "Les commandes sont expédiées et livrées sous 24h-48h"
+    answer: "Les commandes sont expédiées et livrées sous 24h-48h partout en algerie"
   },
   {
     question: "Comment puis-je retourner un article ?",
-    answer: "Vous disposez de 24h pour retourner un article non porté avec ses étiquettes. Contactez notre service client pour obtenir une étiquette de retour ."
+    answer: "Vous disposez de 24h pour retourner un article non porté avec ses étiquettes. Contactez notre service client pour obtenir une étiquette de retour ui ."
   },
   {
     question: "Les frais de livraison sont-ils gratuits ?",
-    answer: "Oui, la livraison est gratuite pour toute commande supérieure à 20000da."
+    answer: "Oui, la livraison est gratuite pour toute commande supérieure à 20000da profitez."
   },
   {
     question: "Comment connaître ma taille ?",
