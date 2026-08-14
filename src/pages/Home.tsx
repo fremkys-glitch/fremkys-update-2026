@@ -30,7 +30,7 @@ export default function Home({ onNavigate, onCartOpen, productsData }: HomeProps
         onClick={() => onNavigate('shop')}
       >
         <img
-          src="https://res.cloudinary.com/wwdh45fc/image/upload/v1784758700/IMG_0140_tgxnqo.jpg"
+          src="https://res.cloudinary.com/uzwf4tvt/image/upload/v1786670998/IMG_6315.png"
         
           alt="Nouvelle Collection"
           className="absolute inset-0 w-full h-full object-cover"
